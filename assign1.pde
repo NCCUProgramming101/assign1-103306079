@@ -30,8 +30,8 @@ void setup () {
 
 void draw() {
   //background roll
-  image(bg2,-1280+x%640,0,640,480);
-  image(bg1,-1920+x%640,0,640,480);
+  image(bg2,0+x%640,0,640,480);
+  image(bg1,-640+x%640,0,640,480);
   x++;
   
   //blood
