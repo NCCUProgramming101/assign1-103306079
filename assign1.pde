@@ -1,5 +1,5 @@
 /* please implement your assign1 code in this file. */
-PImage bg1, bg2, enemy, fighter, hp, treasure;
+PImage bg1, bg2, bg3, bg4, enemy, fighter, hp, treasure;
 int x;
 int blood;
 int treasureX, treasureY;
@@ -9,13 +9,15 @@ void setup () {
   size(640,480) ;  // must use this size.
   bg1 = loadImage("img/bg1.png");
   bg2 = loadImage("img/bg2.png");
+  bg3 = loadImage("img/bg1.png");
+  bg4 = loadImage("img/bg2.png");
   enemy = loadImage("img/enemy.png");
   fighter = loadImage("img/fighter.png");
   hp = loadImage("img/hp.png");
   treasure = loadImage("img/treasure.png");
   
   //background
-  image(bg2,0,0,640,480);
+  image(bg1,0,0,640,480);
   
   //random blood
   blood = floor(random(10,200));
@@ -30,9 +32,23 @@ void setup () {
 
 void draw() {
   //background roll
-  image(bg2,0+x%640,0,640,480);
-  image(bg1,-640+x%640,0,640,480);
-  x++;
+  if(640+x%1280>640){
+    image(bg1,-1280,0,640,480);
+  }
+  if(0+x%1280>640){
+    image(bg2,-1280,0,640,480);
+  }
+  if(1280+x%1280>640){
+    image(bg3,-1280,0,640,480);
+  }
+  if(-1280+x%1280>640){
+    image(bg4,-1280,0,640,480);
+  }
+  image(bg1,640+x%1280,0,640,480);
+  image(bg2,0+x%1280,0,640,480);
+  image(bg3,-640+x%1280,0,640,480);
+  image(bg4,-1280+x%1280,0,640,480);
+  x+=4;
   
   //blood
   noStroke();
