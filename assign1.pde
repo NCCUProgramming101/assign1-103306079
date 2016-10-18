@@ -17,7 +17,7 @@ void setup () {
   treasure = loadImage("img/treasure.png");
   
   //background
-  image(bg1,0,0,640,480);
+  image(bg2,0,0,640,480);
   
   //random blood
   blood = floor(random(10,200));
